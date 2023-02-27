@@ -1,7 +1,13 @@
-import React from "react";
+export const metadata = {
+  title: "",
+  //   admin pages
+  description: ``,
+};
 
-function page() {
-  return <div>page</div>;
+export default function Dashboard() {
+  return (
+    <div>
+      <h1>Dashboard page</h1>
+    </div>
+  );
 }
-
-export default page;
