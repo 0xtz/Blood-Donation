@@ -54,3 +54,10 @@ to be added
  -->
 
  
+# Resources :
+
+- [Intercom](https://www.intercom.com/blog/nextjs-tutorial/)
+- [UnDraw](https://undraw.co/illustrations)
+- [checklyhq](https://checklyhq.com/)
+- [Vercel](https://vercel.com/)
+- 
