@@ -1,0 +1,39 @@
+//
+.button {
+  font-family: $font-headers;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  // make the whole button clickable
+  &:hover {
+    cursor: pointer;
+  }
+}
+.button__primary {
+  @extend .button;
+  background-color: $color-primary;
+  color: $color-white;
+
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.button__secondary {
+  @extend .button;
+  background-color: $color-white;
+  color: $color-primary;
+
+  outline: 1px solid $color-stroke;
+
+  &:hover {
+    outline: 1px solid $color-primary;
+  }
+}

@@ -1,0 +1,40 @@
+nav {
+  .nav__wrapper {
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    .nav__logo {
+      width: 40px;
+      // height: ;
+      object-fit: contain;
+    }
+
+    .nav__list {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      .nav__item {
+        a {
+          font-family: $font-headers;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+
+    .nav__auth {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+  // // ! debug only
+  // border-bottom: 1px solid #000;
+}

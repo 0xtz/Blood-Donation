@@ -1,0 +1,27 @@
+//
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: $font-headers;
+}
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: $font-headers;
+}
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  font-family: $font-headers;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: $font-text;
+}
+
+a {
+  font-size: $font-text !important;
+}
