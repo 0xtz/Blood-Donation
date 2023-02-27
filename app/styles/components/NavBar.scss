@@ -35,6 +35,9 @@ nav {
       gap: 24px;
     }
   }
-  // // ! debug only
-  // border-bottom: 1px solid #000;
+  #red {
+    color: $color-primary;
+    font-family: $font-headers;
+    font-weight: 700;
+  }
 }

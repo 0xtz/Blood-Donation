@@ -13,12 +13,15 @@ export function NavigationBar() {
         <img className="nav__logo" src="/logo.svg" alt="logo" />
         <ul className="nav__list">
           <li className="nav__item">
+            <span id="red"># </span>
             <Link href="/">Home</Link>
           </li>
           <li className="nav__item">
+            <span id="red"># </span>
             <Link href="/about">About Us</Link>
           </li>
           <li className="nav__item">
+            <span id="red"># </span>
             <Link href="/faq">FAQ</Link>
           </li>
         </ul>
