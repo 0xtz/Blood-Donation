@@ -19,7 +19,7 @@ export function NavigationBar() {
             <Link href="/about">About Us</Link>
           </li>
           <li className="nav__item">
-            <Link href="/">/</Link>
+            <Link href="/faq">FAQ</Link>
           </li>
         </ul>
 
