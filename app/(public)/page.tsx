@@ -7,7 +7,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero__content">
           <h1 className="hero__content__title">Blood Donation</h1>
-          <h2 className="hero__content__subtitle">Be a Hero <i>Just like my tz</i></h2>
+          <h2 className="hero__content__subtitle">Be a Hero</h2>
           <p className="hero__content__desc">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
             accusantium amet natus perspiciatis laboriosam sed praesentium eum,
