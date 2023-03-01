@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+model User {
+  id         String   @id @default(cuid())
+  cin        String   @unique
+  // creds
+  email      String   @unique
+  password   String?
+  // personal info
+  dob        DateTime
+  last_name  String
+  first_name String
+
+  blood_type String
+  city       String
+
+  last_donation DateTime?
+
+  // relations
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+  Donation   Donation[]
+}
+
+model Hospital {
+  id          String     @id @default(cuid())
+  name        String
+  location    String
+  created_at  DateTime   @default(now())
+  updated_at  DateTime   @updatedAt
+  Hospitals   Hospitals? @relation(fields: [hospitalsId], references: [id])
+  hospitalsId String?
+}
+
+// hospitals is a list of all Hospitals
+model Hospitals {
+  id         String     @id @default(cuid())
+  hospitals  Hospital[]
+  created_at DateTime   @default(now())
+  updated_at DateTime   @updatedAt
+}
+
+// donations
+model Donation {
+  id          String   @id @default(cuid())
+  user_id     String
+  hospital_id String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  User        User?    @relation(fields: [userId], references: [id])
+  userId      String?
+}
+
+// 
+model BloodRequest {
+  id          String @id @default(cuid())
+  hospital_id String
+  blood_type  String
+  status      String @default("Open")
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
