@@ -15,6 +15,7 @@ export async function getUsers() {
 
 function page() {
   const users = use(getUsers());
+  console.log(users);
   return (
     <div>
       <h1>FAQ</h1>

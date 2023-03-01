@@ -11,63 +11,51 @@ datasource db {
 }
 
 model User {
-  id         String   @id @default(cuid())
-  cin        String   @unique
-  // creds
-  email      String   @unique
-  password   String?
-  // personal info
-  dob        DateTime
+  id       String   @id @default(cuid())
+  cin      String   @unique
+  email    String   @unique
+  password String?
+  dob      DateTime
+
   last_name  String
   first_name String
-
   blood_type String
-  city       String
 
+  city          String
   last_donation DateTime?
 
-  // relations
   created_at DateTime   @default(now())
   updated_at DateTime   @updatedAt
-  Donation   Donation[]
+  donations  Donation[]
 }
 
 model Hospital {
-  id          String     @id @default(cuid())
-  name        String
-  location    String
-  created_at  DateTime   @default(now())
-  updated_at  DateTime   @updatedAt
-  Hospitals   Hospitals? @relation(fields: [hospitalsId], references: [id])
-  hospitalsId String?
+  id             String         @id @default(cuid())
+  name           String
+  location       String
+  email          String?        @unique
+  created_at     DateTime       @default(now())
+  updated_at     DateTime       @updatedAt
+  blood_requests BloodRequest[]
+  Donation       Donation[]
 }
 
-// hospitals is a list of all Hospitals
-model Hospitals {
-  id         String     @id @default(cuid())
-  hospitals  Hospital[]
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
-}
-
-// donations
 model Donation {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   user_id     String
   hospital_id String
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-  User        User?    @relation(fields: [userId], references: [id])
-  userId      String?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  user        User?     @relation(fields: [user_id], references: [id])
+  hospital    Hospital? @relation(fields: [hospital_id], references: [id])
 }
 
-// 
 model BloodRequest {
-  id          String @id @default(cuid())
+  id          String    @id @default(cuid())
   hospital_id String
   blood_type  String
-  status      String @default("Open")
-
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  status      String    @default("Open")
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
+  hospital    Hospital? @relation(fields: [hospital_id], references: [id])
 }
