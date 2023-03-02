@@ -10,12 +10,9 @@ The application is built using **Next.js** v 13. The database used is **MySQL**,
 
 - [Blood Donation Web Application](#blood-donation-web-application)
   - [Table of Contents](#table-of-contents)
-  - [](#)
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
-
-## 
 
 ## Installation
 

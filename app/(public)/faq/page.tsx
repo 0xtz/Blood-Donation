@@ -1,32 +1,32 @@
 import { use } from "react";
 // import { prisma } from "@/lib/prismadb";
 import prisma from "@/lib/prismadb";
+import UserForm from "./UserForm";
 
-// select all user ids from the database
-export async function getUsers() {
-  const users = await prisma.user.findMany({
+export async function listHospitals() {
+  const hospitals = await prisma.hospital.findMany({
     select: {
       id: true,
+      name: true,
+      location: true,
     },
   });
-
-  return users;
+  return hospitals;
 }
 
 function page() {
-  const users = use(getUsers());
-  console.log(users);
+  const hospitals = use(listHospitals());
+
   return (
-    <div>
-      <h1>FAQ</h1>
-      <ul>
-        {users.map((user: any) => (
-          <li key={user.id}>
-            <a href={`/faq/${user.id}`}>{user.id}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <main>
+      {hospitals?.map((hospital) => (
+        <div key={hospital.id}>
+          <h2>{hospital.name}</h2>
+          <p>{hospital.location}</p>
+        </div>
+      ))}
+      <UserForm />
+    </main>
   );
 }
 

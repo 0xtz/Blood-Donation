@@ -10,23 +10,39 @@ datasource db {
   url      = env("DB_URL")
 }
 
+// model User {
+//   id       String   @id @default(cuid())
+//   cin      String   @unique
+//   email    String   @unique
+//   password String?
+//   dob      DateTime
+
+//   last_name  String
+//   first_name String
+//   blood_type String @relation(fields: [blood_type_id], references: [id])
+
+//   city          String
+//   last_donation DateTime?
+
+//   created_at DateTime   @default(now())
+//   updated_at DateTime   @updatedAt
+//   donations  Donation[]
+// }
 model User {
-  id       String   @id @default(cuid())
-  cin      String   @unique
-  email    String   @unique
-  password String?
-  dob      DateTime
-
-  last_name  String
-  first_name String
-  blood_type String
-
+  id            String     @id @default(cuid())
+  cin           String     @unique
+  email         String     @unique
+  password      String?
+  dob           DateTime
+  last_name     String
+  first_name    String
+  bloodType     BloodType  @relation(fields: [bloodTypeId], references: [id])
+  bloodTypeId   String
   city          String
   last_donation DateTime?
-
-  created_at DateTime   @default(now())
-  updated_at DateTime   @updatedAt
-  donations  Donation[]
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @updatedAt
+  Donation      Donation[]
 }
 
 model Hospital {
@@ -41,13 +57,17 @@ model Hospital {
 }
 
 model Donation {
-  id          String    @id @default(cuid())
+  id          String     @id @default(cuid())
   user_id     String
   hospital_id String
-  created_at  DateTime  @default(now())
-  updated_at  DateTime  @updatedAt
-  user        User?     @relation(fields: [user_id], references: [id])
-  hospital    Hospital? @relation(fields: [hospital_id], references: [id])
+  bloodTypeId String?
+  BloodType   BloodType? @relation(fields: [bloodTypeId], references: [id])
+  created_at  DateTime   @default(now())
+  updated_at  DateTime   @updatedAt
+  User        User?      @relation(fields: [userId], references: [id])
+  userId      String?
+  Hospital    Hospital?  @relation(fields: [hospitalId], references: [id])
+  hospitalId  String?
 }
 
 model BloodRequest {
@@ -59,3 +79,21 @@ model BloodRequest {
   updated_at  DateTime  @updatedAt
   hospital    Hospital? @relation(fields: [hospital_id], references: [id])
 }
+
+// list of blood types (A+, A-, B+, B-, AB+, AB-, O+, O-)
+model BloodType {
+  id             String     @id @default(cuid())
+  type           String
+  canDonateTo    String
+  canReceiveFrom String
+  users          User[]
+  created_at     DateTime   @default(now())
+  updated_at     DateTime   @updatedAt
+  Donation       Donation[]
+}
+
+// insert into blood_types (type, can_donate_to, can_receive_from) values ('A+', 'A+, AB+', 'A+, A-, O+, O-');
+// Each user can have many donations
+// Each hospital can have many donations
+// Each donation can have one user
+// Each donation can have one hospital

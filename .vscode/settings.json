@@ -13,6 +13,18 @@
       "database": "BLOOD_DONATION_DB",
       "username": "tz",
       "name": "blood donation"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "ista",
+      "database": "TZ_BANK",
+      "username": "tz"
     }
   ]
 }
