@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
+    <div className="page__container">
       {/* hero */}
       <section className="hero">
         <div className="hero__content">
@@ -14,10 +14,14 @@ export default function Home() {
             power to change someone's life.
           </p>
           <div className="hero__content__buttons">
-            <Link href="/auth/signup" className="button__primary">
+            <Link 
+            // @ts-ignore
+            href="/auth/signup" className="button__primary">
               Be a Donor
             </Link>
-            <Link href="/about" className="button__secondary">
+            <Link 
+            // @ts-ignore
+            href="/about" className="button__secondary">
               Learn More
             </Link>
           </div>
@@ -37,6 +41,6 @@ export default function Home() {
           perferendis, rerum inventore est saepe!
         </p>
       </main>
-    </>
+    </div>
   );
 }
