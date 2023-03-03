@@ -14,7 +14,7 @@ export default function Home() {
           </p>
           <div className="hero__content__buttons">
             <Link href="/login" className="button__primary">
-              Get Started
+              Be a Donor
             </Link>
             <Link href="/about" className="button__secondary">
               Learn More
