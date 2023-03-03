@@ -1,8 +1,7 @@
 //
 .button {
-  font-family: $font-headers;
   font-weight: 700;
-  padding: 10px 20px;
+  padding: 10px 30px;
   border-radius: 8px;
   a {
     color: inherit;
@@ -17,9 +16,6 @@
   @extend .button;
   background-color: $color-primary;
   color: $color-white;
-
-  padding: 10px 20px;
-  border-radius: 8px;
 
   &:hover {
     background-color: $color-primary-dark;

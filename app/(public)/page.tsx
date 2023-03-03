@@ -9,11 +9,12 @@ export default function Home() {
           <h1 className="hero__content__title">Donate Blood,</h1>
           <h1 className="hero__content__title red">Save lives.</h1>
           <p className="hero__content__desc">
-          Join us in the fight against blood shortages and help save lives by donating blood today.
-          Every donation makes a difference and has the power to change someone's life. 
+            Join us in the fight against blood shortages and help save lives by
+            donating blood today. Every donation makes a difference and has the
+            power to change someone's life.
           </p>
           <div className="hero__content__buttons">
-            <Link href="/login" className="button__primary">
+            <Link href="/auth/signup" className="button__primary">
               Be a Donor
             </Link>
             <Link href="/about" className="button__secondary">
@@ -23,7 +24,7 @@ export default function Home() {
         </div>
         {/*  */}
         <div className="hero__image">
-          <img src="/images/hero.jpg" alt="hero" />
+          <img src="/imgs/hero__section.svg" alt="hero" />
         </div>
       </section>
       {/* hero end */}

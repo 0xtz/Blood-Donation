@@ -27,10 +27,10 @@ export function NavigationBar() {
         </ul>
 
         <div className="nav__auth">
-          <Link href="/signIn" className="button__secondary">
+          <Link href="/auth/signin" className="button__secondary">
             Sign in
           </Link>
-          <Link href="/signUp" className="button__primary">
+          <Link href="/auth/signup" className="button__primary">
             Sign up
           </Link>
         </div>

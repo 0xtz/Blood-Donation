@@ -1,10 +1,10 @@
+import { NextRequest, NextResponse } from "next/server";
 import NextAuth, { NextAuthOptions } from "next-auth";
+
 import CredentialsProvider from "next-auth/providers/credentials";
-import { NextApiRequest, NextApiResponse } from "next";
 
 import prisma from "../../../lib/prismadb";
 // types
-import { User } from "@prisma/client";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -22,7 +22,14 @@ export const authOptions: NextAuthOptions = {
         // Add logic here to look up the user from the credentials supplied
         const user = { id: 1, name: "J Smith", email: "0xtz.52@gmail.com" };
         if (user.email === email) {
-          return user;
+          //
+          // return user;
+          // save the user token in the local storage
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+          };
         }
         throw new Error("Invalid username or password");
       },
@@ -59,5 +66,5 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
-export default (req: NextApiRequest, res: NextApiResponse<any>) =>
+export default (req: NextRequest, res: NextResponse) =>
   NextAuth(req, res, authOptions);
