@@ -3,7 +3,7 @@ import { use } from "react";
 import prisma from "@/lib/prismadb";
 import UserForm from "./UserForm";
 
-export async function listHospitals()
+async function listHospitals()
 {
 const hospitals = await prisma.hospital.findMany({
     select: {
