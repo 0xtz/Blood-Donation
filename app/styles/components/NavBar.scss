@@ -5,12 +5,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
+    box-shadow:0px 1px 10px rgba(0, 0, 0, 0.251);
+    ;
     .nav__logo {
       width: 40px;
       // height: ;
       object-fit: contain;
     }
-
+   
     .nav__list {
       display: flex;
       gap: 24px;
