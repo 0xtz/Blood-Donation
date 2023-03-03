@@ -1,6 +1,6 @@
 import "@/app/styles/globals.scss";
 
-import { NavigationBar } from "@/components/Bars/NavigationBar";
+import { NavigationBar } from "@/app/components/NavigationBar/NavigationBar";
 
 // ! to change
 export const metadata = {

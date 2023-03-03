@@ -2,11 +2,8 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-  },
-  // sass 
-  // sassOptions: {
-  //   includePaths: [path.join(__dirname, 'styles')],
-  // },
+    typedRoutes: true,
+  }
 }
 
 module.exports = nextConfig
