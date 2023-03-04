@@ -13,12 +13,15 @@
 @import "_reset.scss";
 @import "_typography.scss";
 @import "_base.scss";
+@import "_utils.scss";
 
 //  pages :
 @import "./pages/Home.scss";
+@import "./pages/auth"; // all auth pages
 
 // components :
 @import "./components/NavBar.scss";
 @import "./components/buttons.scss";
+@import "./components/inputs.scss";
 
 // utils etc :

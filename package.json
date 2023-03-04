@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3984",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3984",
     "lint": "next lint"
   },
   "dependencies": {
@@ -16,7 +16,7 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "next": "13.2.1",
-    "next-auth": "^4.19.2",
+    "next-auth": "^4.20.1",
     "next-redux-wrapper": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

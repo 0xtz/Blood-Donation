@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import NextAuth, { NextAuthOptions } from "next-auth";
+// @ts-ignore
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import prisma from "../../../lib/prismadb";
+import prisma from "@/lib/prismadb";
 // types
 
 export const authOptions: NextAuthOptions = {
+  adapter: PrismaAdapter(prisma),
+
   providers: [
     // email / password providers...
     CredentialsProvider({
@@ -15,15 +19,13 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "text", placeholder: "jsmith" },
       },
       // @ts-ignore
-      async authorize(credentials, req) {
+      authorize: async (credentials) => {
         const { email } = credentials as {
           email: string;
         };
         // Add logic here to look up the user from the credentials supplied
-        const user = { id: 1, name: "J Smith", email: "0xtz.52@gmail.com" };
+        const user = { id: 1, name: "0xtz", email: "0xtz@gmail.com" };
         if (user.email === email) {
-          //
-          // return user;
           // save the user token in the local storage
           return {
             id: user.id,

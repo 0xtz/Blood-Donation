@@ -1,6 +1,9 @@
 body {
   background-color: $color-white;
   color: $color-black;
+
+  // Set the font family
+  font-family: $font-text;
 }
 
 .page__container {

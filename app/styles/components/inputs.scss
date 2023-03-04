@@ -1,0 +1,13 @@
+//
+input {
+  background-color: $color-white;
+  border: 1px solid $color-stroke;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  &:focus {
+    border-color: $color-primary;
+  }
+}
