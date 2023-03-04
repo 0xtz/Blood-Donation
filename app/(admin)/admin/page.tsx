@@ -1,10 +1,8 @@
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { useSession } from "next-auth/react";
 
 export default function Page() {
   const { data: session } = useSession();
-
   if (typeof window === "undefined") return null;
 
   if (session) {
@@ -16,12 +14,4 @@ export default function Page() {
     );
   }
   return <p>Access Denied</p>;
-}
-
-export async function getServerSideProps(context: any) {
-  return {
-    props: {
-      session: await getServerSession(context.req, context.res, authOptions),
-    },
-  };
 }

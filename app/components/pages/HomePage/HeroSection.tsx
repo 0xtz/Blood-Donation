@@ -1,4 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
+
+// img
+import heroImg from "@/public/imgs/hero__section.svg";
 
 function HeroSection() {
   return (
@@ -28,7 +32,7 @@ function HeroSection() {
       </div>
       {/*  */}
       <div className="hero__image">
-        <img src="/imgs/hero__section.svg" alt="hero" />
+        <Image src={heroImg} alt="hero" />
       </div>
     </main>
   );
