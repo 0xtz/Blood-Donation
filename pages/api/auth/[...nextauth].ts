@@ -1,20 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
 
 import prisma from "@/lib/prismadb";
 
 export const authOptions: NextAuthOptions = {
-  // adapter: PrismaAdapter(prisma),
   providers: [
     // email / password providers...
     CredentialsProvider({
       name: "Credentials",
-      credentials: {
-        // custom page we don't need this
-      },
+      credentials: {},
       authorize: async (credentials) => {
         const { email, password } = credentials as {
           email: string;
@@ -22,8 +18,7 @@ export const authOptions: NextAuthOptions = {
         };
         const user = await prisma.users.findUnique({
           where: {
-            // the email || cin
-            email: email,
+            email: email, // the email || cin to add
           },
         });
         if (!user || !(await bcrypt.compare(password, user.password!))) {
@@ -37,10 +32,6 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           dob: user.dob,
           // role: user?.role === "admin" ? "admin" : "user",
-          // the jwt token
-          token: {
-            userRole: user?.last_name === "admin" ? "admin" : "user",
-          },
         };
       },
     }),
@@ -48,27 +39,24 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token }) {
-      token.userRole = "admin";
       return token;
     },
   },
 
   jwt: {
     secret: process.env.JWT_SECRET,
-    maxAge: parseInt(process.env.JWT_EXPIRES_IN!), // 90 days
+    maxAge: 60 * 60 * 24 * 30,
   },
-
   session: {
-    // @ts-ignore
-    jwt: true,
-    maxAge: parseInt(process.env.JWT_EXPIRES_IN!),
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    updateAge: 24 * 60 * 60, // 24 hours
   },
 
   pages: {
     signIn: "/auth/signin",
   },
 
-  // @ts-ignore
   events: {
     async signIn(message) {
       console.log("signIn", message);

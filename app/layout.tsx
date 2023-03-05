@@ -1,12 +1,12 @@
-import "@/app/styles/globals.scss";
-import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "@/app/AuthContext";
 import { Session } from "next-auth";
 import { headers } from "next/headers";
 //
 import { NavigationBar } from "@/app/components/NavigationBar/NavigationBar";
 
-// ! to change
+import "@/app/styles/globals.scss";
+import "react-toastify/dist/ReactToastify.css";
+
 export const metadata = {
   title: "Blood Donation",
   description: "Blood Donation Application",

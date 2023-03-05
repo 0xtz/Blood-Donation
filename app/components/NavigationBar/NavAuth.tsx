@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+import { Dna } from "react-loader-spinner";
 
 function NavAuth() {
   const { data: session, status: loading } = useSession();
@@ -16,8 +17,19 @@ function NavAuth() {
 
   const authUserNav = (
     <>
-      <Link href="/">Profile</Link>
-      <Link href="/">Settings {session?.user?.name}</Link>
+      <Link href="/" className="">
+        Profile
+      </Link>
+      <Link href="/" className="">
+        {session?.user?.name}
+      </Link>
+      <button
+        className="button__secondary"
+        onClick={() => {
+          signOut();
+        }}>
+        Sign out
+      </button>
     </>
   );
   const unAuthUserNav = (
@@ -30,6 +42,21 @@ function NavAuth() {
       </Link>
     </>
   );
+  const loadingNav = (
+    <Dna
+      visible={true}
+      height="80"
+      width="80"
+      ariaLabel="dna-loading"
+      wrapperStyle={{}}
+      wrapperClass="dna-wrapper"
+    />
+  );
+
+  if (loading === "loading") {
+    return loadingNav;
+  }
+
   return (
     <div className="nav__auth">
       {loading === "authenticated" ? authUserNav : unAuthUserNav}
