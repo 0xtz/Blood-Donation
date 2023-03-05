@@ -1,6 +1,8 @@
-# LEARN : 
+# Blood Donation
 
-- [ ] [Next.js](https://nextjs.org/learn/basics/create-nextjs-app) 
+## LEARN
+
+- [ ] [Next.js](https://nextjs.org/learn/basics/create-nextjs-app)
 - [ ] [Prisma](https://www.prisma.io/docs/getting-started/quickstart-typescript)
 - [ ] [Next.js + Prisma](https://www.prisma.io/docs/guides/deployment/deploying-to-vercel)
 - [ ] [NextAuth.js](https://next-auth.js.org/getting-started/example)
@@ -8,36 +10,42 @@
 - [ ] [NextAuth.js + Prisma + Next.js](https://next-auth.js.org/tutorials/nextjs-prisma-my-sql)
 
 --
-# Design :
+
+## Design
 
 - Design system (DONE).
 - Prototype ()
 - ...
 
 --
-# Pages : 
+
+## Pages
 
 (public)
 /
 /about
 /signIn
 /signUp
-
+/privacy
 
 (admin)
 /dashboard
     /request
-    /
+    /donation
+    /user
+    /settings
 
 (user)
 /user/
     /account
-/donations/
+        /settings
+    /donations
     /requests
     /affected-donations
 
 --
-# Techs Used : 
+
+## Techs Used
 
 - [ ] Next.js
 - [ ] NextAuth.js
@@ -48,13 +56,17 @@
 
 --
 
-# Features :
+## Features
 <!-- 
 to be added
  -->
+- [x] Authentication
+- [ ] Admin Dashboard
+- [ ] User Dashboard
+- [ ] Role Based Access Control
+- [ ] User Profile
 
- 
-# Resources :
+### Resources
 
 - [Intercom](https://www.intercom.com/blog/nextjs-tutorial/)
 - [UnDraw](https://undraw.co/illustrations)

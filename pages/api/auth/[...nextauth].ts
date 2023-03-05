@@ -7,7 +7,7 @@ import bcrypt from "bcryptjs";
 import prisma from "@/lib/prismadb";
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma),
   providers: [
     // email / password providers...
     CredentialsProvider({
@@ -26,16 +26,21 @@ export const authOptions: NextAuthOptions = {
             email: email,
           },
         });
-        if (!user || !(await bcrypt.compare(password, user.password))) {
+        if (!user || !(await bcrypt.compare(password, user.password!))) {
           throw new Error("Invalid email or password");
         }
 
         return {
           id: user.id,
           cin: user.cin,
+          name: `${user.first_name} ${user.last_name}`,
           email: user.email,
-          fullName: user.first_name + " " + user.last_name,
           dob: user.dob,
+          // role: user?.role === "admin" ? "admin" : "user",
+          // the jwt token
+          token: {
+            userRole: user?.last_name === "admin" ? "admin" : "user",
+          },
         };
       },
     }),
