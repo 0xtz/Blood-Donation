@@ -3,22 +3,47 @@
 import React, { FormEventHandler, useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
 
 function page() {
+  const [error, setError] = useState<null | {
+    message: string;
+    status: number;
+  }>({
+    message: "",
+    status: 0,
+  });
+
+  // const notify = () => toast("Wow so easy !"); // wait for to SignIn promise to resolve
+  const notify = (message: string) => toast(message);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
   const handleSubmit: FormEventHandler = async (e) => {
+    notify("Wow so easy !");
     e.preventDefault();
 
-    // const result = await signIn("credentials", {
-    //   callbackUrl: "http://localhost:3000/",
-    //   email: user.email,
-    //   // password: user.password,
-    // });
-    // console.log(result);
+    const result = await signIn("credentials", {
+      callbackUrl: "http://localhost:3984/", // callbackUrl is for redirection after login
+      redirect: false,
+      email: user.email,
+      password: user.password,
+    })
+      .then((res) =>
+        setError({
+          ...error!,
+          message: "Success",
+        })
+      )
+      .catch((err) => {
+        setError({
+          message: err.message,
+          status: err.status,
+        });
+      });
   };
 
   return (
@@ -47,6 +72,20 @@ function page() {
           Sign Up
         </Link>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
     </main>
   );
 }

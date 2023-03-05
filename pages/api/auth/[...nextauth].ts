@@ -1,41 +1,45 @@
 import { NextRequest, NextResponse } from "next/server";
 import NextAuth, { NextAuthOptions } from "next-auth";
-// @ts-ignore
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import bcrypt from "bcryptjs";
 
 import prisma from "@/lib/prismadb";
-// types
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
-
   providers: [
     // email / password providers...
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "jsmith" },
+        // custom page we don't need this
       },
-      // @ts-ignore
       authorize: async (credentials) => {
-        const { email } = credentials as {
+        const { email, password } = credentials as {
           email: string;
+          password: string;
         };
-        // Add logic here to look up the user from the credentials supplied
-        const user = { id: 1, name: "0xtz", email: "0xtz@gmail.com" };
-        if (user.email === email) {
-          // save the user token in the local storage
-          return {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-          };
+        const user = await prisma.users.findUnique({
+          where: {
+            // the email || cin
+            email: email,
+          },
+        });
+        if (!user || !(await bcrypt.compare(password, user.password))) {
+          throw new Error("Invalid email or password");
         }
-        throw new Error("Invalid username or password");
+
+        return {
+          id: user.id,
+          cin: user.cin,
+          email: user.email,
+          fullName: user.first_name + " " + user.last_name,
+          dob: user.dob,
+        };
       },
     }),
+    // ...add more providers here
   ],
   callbacks: {
     async jwt({ token }) {
@@ -43,10 +47,12 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
+
   jwt: {
     secret: process.env.JWT_SECRET,
     maxAge: parseInt(process.env.JWT_EXPIRES_IN!), // 90 days
   },
+
   session: {
     // @ts-ignore
     jwt: true,

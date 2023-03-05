@@ -12,6 +12,7 @@
 
 .flex {
   display: flex;
+  gap: 24px;
   &_column {
     flex-direction: column;
   }

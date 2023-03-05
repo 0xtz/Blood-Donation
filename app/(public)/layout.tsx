@@ -1,4 +1,5 @@
 import "@/app/styles/globals.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 import { NavigationBar } from "@/app/components/NavigationBar/NavigationBar";
 
