@@ -1,28 +1,11 @@
 "use client";
 
-import React, { FormEventHandler, useState } from "react";
-import { signIn } from "next-auth/react";
-import Link from "next/link";
+import SignInForm from "@/app/components/pages/auth/SignInForm";
 
 function page() {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleSubmit: FormEventHandler = async (e) => {
-    e.preventDefault();
-
-    // const result = await signIn("credentials", {
-    //   callbackUrl: "http://localhost:3000/",
-    //   email: user.email,
-    //   // password: user.password,
-    // });
-    // console.log(result);
-  };
-
   return (
     <main className="main__form flex_column">
+<<<<<<< HEAD
       <form className="form__signin">
         <h1 className="form__title underline">Sign In</h1>
         <input
@@ -48,6 +31,9 @@ function page() {
           Sign Up
         </Link>
       </form>
+=======
+      <SignInForm />
+>>>>>>> 452b401275958b7f97ec2610c8509f1f67954898
     </main>
   );
 }

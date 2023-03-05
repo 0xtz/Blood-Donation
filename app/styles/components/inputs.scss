@@ -1,5 +1,7 @@
 //
-input {
+input,
+select,
+textarea {
   background-color: $color-white;
   border: 1px solid $color-stroke;
   border-radius: 8px;
@@ -9,5 +11,23 @@ input {
   transition: all 0.2s ease-in-out;
   &:focus {
     border-color: $color-primary;
+  }
+}
+select {
+  // change the default arrow icon
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  option {
+    background-color: $color-white;
+    border: 1px solid $color-stroke;
+    padding: 10px 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      border-color: $color-primary;
+    }
   }
 }

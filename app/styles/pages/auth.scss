@@ -40,19 +40,24 @@
 .form__signin {
   @extend .form;
 
-  width: 400px;
+  width: 450px;
 }
 
 //  --  Sign Up
 .form__signup {
   @extend .form;
 
-  width: 400px;
+  width: 450px;
+  .tos {
+    // left align
+    text-align: left;
+    align-items: start;
+  }
 }
 
 //  --  Sign Out
 .form__signout {
   @extend .form;
 
-  width: 400px;
+  width: 450px;
 }

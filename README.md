@@ -13,6 +13,7 @@ The application is built using **Next.js** v 13. The database used is **MySQL**,
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
+  - [credits](#credits)
 
 ## Installation
 
@@ -31,3 +32,18 @@ To use the application, navigate to `http://localhost:3000` in your web browser.
 ## License
 
 This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) for more information.
+
+## credits
+
+This project was created by [Siddharth Kshetrapal](t) and [Siddharth Kshetrapal](d).
+
+<!-- give credits to the techs used and libraries -->
+
+- []: [Next.js](https://nextjs.org/)
+- []: [MySQL](https://www.mysql.com/)
+- []: [NextAuth.js](https://next-auth.js.org/)
+- []: [React](https://reactjs.org/)
+- []: [React Spinners](https://mhnpd.github.io/react-loader-spinner/)
+- []: [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+- []: [React Icons](https://react-icons.github.io/react-icons/)
+- []: [React Hook Form](https://react-hook-form.com/) // not used `yet`
