@@ -43,6 +43,7 @@ function page() {
           Sign In
         </button>
         <span className="color-stroke">You don't have an account ?</span>
+        {/* @ts-ignore */}
         <Link href="/auth/signup" className="button__secondary form__button">
           Sign Up
         </Link>
