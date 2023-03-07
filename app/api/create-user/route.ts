@@ -47,8 +47,8 @@ export async function POST(request: Request) {
   }
 
   return new NextResponse(
-    JSON.stringify({
-      status: "success",
-    })
+    "created", {
+      status : 200
+    }
   );
 }
