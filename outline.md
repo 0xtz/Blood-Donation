@@ -32,7 +32,7 @@
 
 (user)
 /user/
-    /dashboard
+    /dashboard [x]
     /profile
         /settings
 
@@ -53,6 +53,8 @@
     /profile
         /settings
 
+Public Routes:
+
 - /users
    /dashboard
   - Displays the user's dashboard after they have logged in.
@@ -71,6 +73,32 @@
     - Displays a list of the user's notifications (e.g. when a new request is posted).
    /settings
     - Allows the user to change their account settings, such as email and password.
+Home page: /
+About page: /about
+Contact page: /contact
+Login page: /login
+Register page: /register
+User Routes:
+
+Dashboard page: /dashboard
+Profile page: /profile
+Blood requests page: /requests
+Donations page: /donations
+Logout: /logout
+Admin Routes:
+
+Admin dashboard page: /admin
+Manage requests page: /admin/requests
+Create request page: /admin/requests/create
+Edit request page: /admin/requests/:id/edit
+Delete request: /admin/requests/:id/delete
+Hospital Routes:
+
+Hospital dashboard page: /hospital
+Manage requests page: /hospital/requests
+Create request page: /hospital/requests/create
+Edit request page: /hospital/requests/:id/edit
+Delete request: /hospital/requests/:id/delete
 
 --
 
