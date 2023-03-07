@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NavAuth from "./NavAuth";
+import Image from 'next/image'
 
 export function NavigationBar() {
   return (
@@ -7,7 +8,8 @@ export function NavigationBar() {
       {/* <img src="" alt="logo" /> */}
       <div className="nav__wrapper">
         <Link href="/">
-          <Image className="nav__logo" high={60} width={60} src="/logo.svg" alt="logo" />
+          <Image className="nav__logo" height={60} width={60} src="/logo.svg" alt="logo" />
+          
         </Link>
         <NavAuth />
       </div>
