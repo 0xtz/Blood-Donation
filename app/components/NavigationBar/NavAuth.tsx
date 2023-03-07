@@ -13,7 +13,7 @@ function NavAuth() {
     } else if (loading === "authenticated") {
       console.log("authenticated", session);
     }
-  }, [loading]);
+  }, [loading, session]);
 
   const authUserNav = (
     <>
