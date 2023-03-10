@@ -39,7 +39,7 @@ function SignUpForm() {
   };
 
   return (
-    <form className="form__signin">
+    <form className="form__signup">
       <h1 className="form__title underline">Sign Up</h1>
       {/*  ---------------  */}
       <input
@@ -126,9 +126,9 @@ function SignUpForm() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <div className="flex flex_culmn tos">
-        {/* tof */}
-        <input type="checkbox" name="foc" />
-        <label htmlFor="foc" className="color-stroke">
+        {/* tos */}
+        <input type="checkbox" name="tos" id="checkbox" />
+        <label htmlFor="checkbox" className="color-stroke">
           I agree to the terms and conditions
         </label>
       </div>

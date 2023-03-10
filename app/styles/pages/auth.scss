@@ -50,8 +50,12 @@
   width: 450px;
   .tos {
     // left align
+    justify-content: center;
     text-align: left;
     align-items: start;
+    label {
+      cursor: pointer;
+    }
   }
 }
 
