@@ -39,20 +39,18 @@ model Hospital {
 
 model Donation {
   id          String     @id @default(cuid())
-  user_id     String
-  hospital_id String
-  bloodTypeId String?
+  user_id      String?
+  hospital_id  String?
+  bloodType_id String?
   created_at  DateTime   @default(now())
   updated_at  DateTime   @updatedAt
-  userId      String?
-  hospitalId  String?
-  BloodType   BloodType? @relation(fields: [bloodTypeId], references: [id])
-  Hospital    Hospital?  @relation(fields: [hospitalId], references: [id])
-  User        Users?     @relation(fields: [userId], references: [id])
+  BloodType   BloodType? @relation(fields: [bloodType_id], references: [id])
+  Hospital    Hospital?  @relation(fields: [hospital_id], references: [id])
+  User        Users?     @relation(fields: [user_id], references: [id])
 
-  @@index([bloodTypeId], map: "Donation_bloodTypeId_fkey")
-  @@index([hospitalId], map: "Donation_hospitalId_fkey")
-  @@index([userId], map: "Donation_userId_fkey")
+  @@index([bloodType_id], map: "Donation_bloodTypeId_fkey")
+  @@index([hospital_id], map: "Donation_hospitalId_fkey")
+  @@index([user_id], map: "Donation_userId_fkey")
 }
 
 model BloodRequest {
