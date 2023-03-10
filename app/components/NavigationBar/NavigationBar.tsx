@@ -11,7 +11,7 @@ export function NavigationBar() {
           <Image className="nav__logo" height={60} width={60} src="/logo.svg" alt="logo" />
           
         </Link>
-        <NavAuth />
+        {/* <NavAuth /> */}
       </div>
     </nav>
   );
