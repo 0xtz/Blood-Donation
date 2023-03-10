@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { FormEventHandler, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 export default function SignInForm() {
   const [error, setError] = useState<null | {
@@ -14,16 +14,12 @@ export default function SignInForm() {
     status: 0,
   });
 
-  // const notify = () => toast("Wow so easy !"); // wait for to SignIn promise to resolve
-  const notify = (message: string) => toast(message);
-
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
   const handleSubmit: FormEventHandler = async (e) => {
-    notify("Wow so easy !");
     e.preventDefault();
 
     await signIn("credentials", {
@@ -32,12 +28,7 @@ export default function SignInForm() {
       email: user.email,
       password: user.password,
     })
-      .then((res) =>
-        setError({
-          ...error!,
-          message: "Success",
-        })
-      )
+      .then((res) => (window.location.href = "/"))
       .catch((err) => {
         setError({
           message: err.message,
@@ -66,24 +57,11 @@ export default function SignInForm() {
         <button className="button__primary form__button" onClick={handleSubmit}>
           Sign In
         </button>
-        <span className="color-stroke">You don't have an account ?</span>
+        <span className="color-stroke">You do not have an account ?</span>
         <Link href="/auth/signup" className="button__secondary form__button">
           Sign Up
         </Link>
       </form>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 }

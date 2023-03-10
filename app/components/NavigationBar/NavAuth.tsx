@@ -26,7 +26,9 @@ export default function NavAuth() {
       <button
         className="button__secondary"
         onClick={() => {
-          signOut();
+          signOut({
+            callbackUrl: "http://localhost:3984/auth/signin",
+          });
         }}>
         Sign out
       </button>

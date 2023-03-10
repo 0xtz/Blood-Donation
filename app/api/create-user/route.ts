@@ -16,39 +16,51 @@ export async function POST(request: Request) {
     blood_type,
     password,
   } = await request.json().then((data) => {
-    console.log(data);
     return data;
   });
-  const user = await prisma.users
-    .create({
-      // id	cin	email	password	dob	last_name	first_name	city	last_donation	created_at	updated_at	bloodType	phoneNumber	address
-      data: {
-        cin: cin,
-        email: email,
-        last_name: last_name,
-        first_name: first_name,
-        dob: dob,
-        address: address,
-        city: city,
-        phoneNumber: phone_number,
-        bloodType: blood_type,
-        password: await bcrypt.hash(password, 10),
-      },
-    })
-    .catch((err: any) => {
-      console.log(err);
-      return null;
-    });
 
-  if (!user) {
-    return new Response("error", {
-      status: 500,
+  // check if the user already exists in the database by email or cin or phone number
+  const user = await prisma.users.findFirst({
+    where: {
+      OR: [
+        {
+          email: email,
+        },
+        {
+          cin: cin,
+        },
+        {
+          phoneNumber: phone_number,
+        },
+      ],
+    },
+  });
+
+  // if the user already exists, return an error
+  if (user) {
+    return new NextResponse("user already exists", {
+      status: 400,
     });
   }
 
-  return new NextResponse(
-    "created", {
-      status : 200
-    }
-  );
+  // CREATE THE USER
+  await prisma.users.create({
+    // id	cin	email	password	dob	last_name	first_name	city	last_donation	created_at	updated_at	bloodType	phoneNumber	address
+    data: {
+      cin: cin,
+      email: email,
+      last_name: last_name,
+      first_name: first_name,
+      dob: dob,
+      address: address,
+      city: city,
+      phoneNumber: phone_number,
+      bloodType: blood_type,
+      password: await bcrypt.hash(password, 10),
+    },
+  });
+
+  return new NextResponse("created", {
+    status: 200,
+  });
 }

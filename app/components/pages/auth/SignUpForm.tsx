@@ -3,6 +3,7 @@
 import { User } from "@/types";
 import Link from "next/link";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 function SignUpForm() {
   const [user, setUser] = useState<User>({
@@ -30,12 +31,18 @@ function SignUpForm() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    }).then((res) => res.json());
-    if (res.error) {
-      return alert(res.error);
-    }
-    alert("Account created successfully");
-    window.location.href = "/auth/signin";
+    })
+      .catch((err) => {
+        toast.error(`Error: ${err}`);
+      })
+      .then((res) => {
+        if (res?.status === 200) {
+          toast.success("Account created successfully");
+          window.location.href = "/auth/signin";
+        } else {
+          toast.error("Error: " + res?.statusText);
+        }
+      });
   };
 
   return (

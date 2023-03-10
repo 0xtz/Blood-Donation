@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import "@/app/styles/globals.scss";
 import "react-toastify/dist/ReactToastify.css";
 import { NavigationBar } from "./components/NavigationBar/NavigationBar";
+import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: "Blood Donation",
