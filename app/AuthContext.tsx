@@ -2,6 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";
+import { NavigationBar } from "./components/NavigationBar/NavigationBar";
 
 export interface AuthContextProps {
   children: React.ReactNode;

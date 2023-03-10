@@ -4,7 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { Dna } from "react-loader-spinner";
 
-function NavAuth() {
+export default function NavAuth() {
   const { data: session, status: loading } = useSession();
 
   useEffect(() => {
@@ -52,16 +52,14 @@ function NavAuth() {
       wrapperClass="dna-wrapper"
     />
   );
-
-  if (loading === "loading") {
-    return loadingNav;
-  }
-
   return (
     <div className="nav__auth">
-      {loading === "authenticated" ? authUserNav : unAuthUserNav}
+      {/* {loading === "authenticated" ? authUserNav : unAuthUserNav} */}
+      {loading === "loading"
+        ? loadingNav
+        : loading === "authenticated"
+        ? authUserNav
+        : unAuthUserNav}
     </div>
   );
 }
-
-export default NavAuth;

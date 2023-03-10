@@ -1,11 +1,10 @@
 import AuthContext from "@/app/AuthContext";
 import { Session } from "next-auth";
 import { headers } from "next/headers";
-//
-import { NavigationBar } from "@/app/components/NavigationBar/NavigationBar";
 
 import "@/app/styles/globals.scss";
 import "react-toastify/dist/ReactToastify.css";
+import { NavigationBar } from "./components/NavigationBar/NavigationBar";
 
 export const metadata = {
   title: "Blood Donation",

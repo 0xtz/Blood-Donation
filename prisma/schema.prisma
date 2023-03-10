@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  // url = env("DB_URL")
-  url      = "mysql://tz:3L1XHH$8Y1^d1Lh32ZoO^B5B@35.187.63.190:3306/BLOOD_DONATION_BD"
+  url      = env("DB_URL")
+  // url      = ""
 }
 
 model Users {
