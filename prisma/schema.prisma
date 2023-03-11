@@ -4,8 +4,8 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DB_URL")
-  // url      = ""
+  // url      = env("DB_URL")
+  url      = "mysql://tz:3L1XHH$8Y1*d1Lh32ZoO*B5B@35.188.44.209:3306/BLOOD_DONATION_BD"
 }
 
 model Users {
@@ -38,15 +38,15 @@ model Hospital {
 }
 
 model Donation {
-  id          String     @id @default(cuid())
+  id           String     @id @default(cuid())
   user_id      String?
   hospital_id  String?
   bloodType_id String?
-  created_at  DateTime   @default(now())
-  updated_at  DateTime   @updatedAt
-  BloodType   BloodType? @relation(fields: [bloodType_id], references: [id])
-  Hospital    Hospital?  @relation(fields: [hospital_id], references: [id])
-  User        Users?     @relation(fields: [user_id], references: [id])
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @updatedAt
+  BloodType    BloodType? @relation(fields: [bloodType_id], references: [id])
+  Hospital     Hospital?  @relation(fields: [hospital_id], references: [id])
+  User         Users?     @relation(fields: [user_id], references: [id])
 
   @@index([bloodType_id], map: "Donation_bloodTypeId_fkey")
   @@index([hospital_id], map: "Donation_hospitalId_fkey")
