@@ -1,19 +1,16 @@
 "use client";
 
 import { SessionProvider } from "next-auth/react";
-import { Session } from "next-auth";
-import { NavigationBar } from "./components/NavigationBar/NavigationBar";
 import { ToastContainer } from "react-toastify";
 
-export interface AuthContextProps {
-  children: React.ReactNode;
-  session: Session | null;
-}
+type Props = {
+  children?: React.ReactNode;
+};
 
-export default function AuthContext({ children }: AuthContextProps) {
+export const AuthContext = ({ children }: Props) => {
   return (
-    <>
-      <SessionProvider>{children}</SessionProvider>
+    <SessionProvider>
+      {children}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -26,6 +23,6 @@ export default function AuthContext({ children }: AuthContextProps) {
         pauseOnHover
         theme="light"
       />
-    </>
+    </SessionProvider>
   );
-}
+};

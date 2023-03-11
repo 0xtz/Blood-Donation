@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from "next/server";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
@@ -55,6 +54,7 @@ export const authOptions: NextAuthOptions = {
 
   pages: {
     signIn: "/auth/signin",
+    // signOut: "/auth/signout",
   },
 
   events: {
@@ -67,5 +67,5 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
-export default (req: NextRequest, res: NextResponse) =>
-  NextAuth(req, res, authOptions);
+const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };

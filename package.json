@@ -17,7 +17,7 @@
     "@types/react-dom": "18.0.11",
     "bcryptjs": "^2.4.3",
     "next": "^13.2.3",
-    "next-auth": "^4.20.1",
+    "next-auth": "0.0.0-pr.6777.c5550344",
     "next-redux-wrapper": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
