@@ -4,24 +4,23 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  // url      = env("DB_URL")
-  url      = "mysql://tz:3L1XHH$8Y1*d1Lh32ZoO*B5B@35.188.44.209:3306/BLOOD_DONATION_BD"
+  url      = env("DB_URL")
 }
 
 model Users {
   id            String     @id @default(cuid())
   cin           String     @unique
-  email         String     @unique
-  password      String?
-  dob           DateTime
-  last_name     String
   first_name    String
+  last_name     String
+  email         String     @unique
+  dob           DateTime
   city          String
+  phone_number   String?
+  blood_type     String
+  password      String?
   last_donation DateTime?
   created_at    DateTime   @default(now())
   updated_at    DateTime   @updatedAt
-  bloodType     String
-  phoneNumber   String?
   address       String
   Donation      Donation[]
 }
@@ -41,14 +40,14 @@ model Donation {
   id           String     @id @default(cuid())
   user_id      String?
   hospital_id  String?
-  bloodType_id String?
+  blood_type_id String?
   created_at   DateTime   @default(now())
   updated_at   DateTime   @updatedAt
-  BloodType    BloodType? @relation(fields: [bloodType_id], references: [id])
+  Blood_type    Blood_type? @relation(fields: [blood_type_id], references: [id])
   Hospital     Hospital?  @relation(fields: [hospital_id], references: [id])
   User         Users?     @relation(fields: [user_id], references: [id])
 
-  @@index([bloodType_id], map: "Donation_bloodTypeId_fkey")
+  @@index([blood_type_id], map: "Donation_blood_typeId_fkey")
   @@index([hospital_id], map: "Donation_hospitalId_fkey")
   @@index([user_id], map: "Donation_userId_fkey")
 }
@@ -65,11 +64,11 @@ model BloodRequest {
   @@index([hospital_id], map: "BloodRequest_hospital_id_fkey")
 }
 
-model BloodType {
+model Blood_type {
   id             String     @id @default(cuid())
   type           String
-  canDonateTo    String
-  canReceiveFrom String
+  can_donate_to    String
+  can_receive_from String
   created_at     DateTime   @default(now())
   updated_at     DateTime   @updatedAt
   Donation       Donation[]
