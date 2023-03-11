@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { Dna } from "react-loader-spinner";
+import Image from "next/image";
+import profile from "@/public/profile.svg";
 
 export default function NavAuth() {
   const { data: session, status: loading } = useSession();
@@ -17,8 +19,8 @@ export default function NavAuth() {
 
   const authUserNav = (
     <>
-      <Link href="/" className="">
-        Profile
+       <Link href="/" className="">
+        <Image src={profile} alt="profile" />
       </Link>
       <Link href="/" className="">
         {session?.user?.name}
@@ -36,6 +38,10 @@ export default function NavAuth() {
   );
   const unAuthUserNav = (
     <>
+    {/* added it here just to test */}
+      {/* <Link href="/" className="">
+        <Image src={profile} alt="profile" />
+      </Link> */}
       <Link href="/auth/signin" className="button__secondary">
         Sign in
       </Link>
