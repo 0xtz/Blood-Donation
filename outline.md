@@ -21,7 +21,8 @@
 
 ## Pages
 
-(public)
+        
+(public) [DONE]
 /
     /about
     /privacy
@@ -30,9 +31,9 @@
         /signUp
         /signOut
 
-(user)
+(user) [DONE]
 /user/
-    /dashboard [x]
+    /dashboard 
     /profile
         /settings
 
@@ -41,7 +42,7 @@
     /donations
     /requests
 
-(admin)
+(admin) [DONE]
 /dashboard
     /requests
         /requests/new (create)
