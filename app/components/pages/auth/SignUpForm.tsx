@@ -132,7 +132,7 @@ function SignUpForm() {
         placeholder="Confirm Password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <div className="flex flex_culmn tos">
+      <div className="flex_column tos">
         {/* tos */}
         <input type="checkbox" name="tos" id="checkbox" />
         <label htmlFor="checkbox" className="color-stroke">
