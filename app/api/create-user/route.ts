@@ -29,9 +29,6 @@ export async function POST(request: Request) {
         {
           cin: cin,
         },
-        {
-          phoneNumber: phone_number,
-        },
       ],
     },
   });
@@ -54,8 +51,8 @@ export async function POST(request: Request) {
       dob: dob,
       address: address,
       city: city,
-      phoneNumber: phone_number,
-      bloodType: blood_type,
+      phone_number: phone_number,
+      blood_type: blood_type,
       password: await bcrypt.hash(password, 10),
     },
   });

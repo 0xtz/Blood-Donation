@@ -18,6 +18,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-icons: ^4.7.1
+  react-identicons: ^1.2.5
   react-loader-spinner: ^5.3.4
   react-redux: ^8.0.5
   react-toastify: ^9.1.1
@@ -40,6 +41,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
+  react-identicons: 1.2.5_biqbaboplfbrettd7655fr4n2y
   react-loader-spinner: 5.3.4_biqbaboplfbrettd7655fr4n2y
   react-redux: 8.0.5_ctrls2ti7t7iutxbwkm5ipogyy
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
@@ -2373,6 +2375,16 @@ packages:
       react: '*'
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-identicons/1.2.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-x7prkDoc2pD7wSl2C1pGxS+XAoSdq1ABWJWTBUimVTDVJArKOLd0B4wRUJpDm4r+9y7pgf8ylyPGsmlWSV5n2g==}
+    peerDependencies:
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-is/16.13.1:

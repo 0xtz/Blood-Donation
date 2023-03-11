@@ -13,12 +13,18 @@ model Users {
   first_name    String
   last_name     String
   email         String     @unique
+  password      String
   dob           DateTime
   city          String
-  phone_number   String?
-  blood_type     String
+  phone_number  String?
+  blood_type    String
   password      String?
   last_donation DateTime?
+  blood_type    String
+  phone_number  String?
+  address       String?
+  pfp           String?
+  Donation      Donation[]
   created_at    DateTime   @default(now())
   updated_at    DateTime   @updatedAt
   address       String
@@ -30,6 +36,7 @@ model Hospital {
   name           String
   location       String
   email          String?        @unique
+  password       String
   created_at     DateTime       @default(now())
   updated_at     DateTime       @updatedAt
   blood_requests BloodRequest[]
@@ -37,15 +44,15 @@ model Hospital {
 }
 
 model Donation {
-  id           String     @id @default(cuid())
-  user_id      String?
-  hospital_id  String?
+  id            String      @id @default(cuid())
+  user_id       String?
+  hospital_id   String?
   blood_type_id String?
-  created_at   DateTime   @default(now())
-  updated_at   DateTime   @updatedAt
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
   Blood_type    Blood_type? @relation(fields: [blood_type_id], references: [id])
-  Hospital     Hospital?  @relation(fields: [hospital_id], references: [id])
-  User         Users?     @relation(fields: [user_id], references: [id])
+  Hospital      Hospital?   @relation(fields: [hospital_id], references: [id])
+  User          Users?      @relation(fields: [user_id], references: [id])
 
   @@index([blood_type_id], map: "Donation_blood_typeId_fkey")
   @@index([hospital_id], map: "Donation_hospitalId_fkey")
@@ -64,12 +71,12 @@ model BloodRequest {
   @@index([hospital_id], map: "BloodRequest_hospital_id_fkey")
 }
 
-model Blood_type {
-  id             String     @id @default(cuid())
-  type           String
+model BloodType {
+  id               String     @id @default(cuid())
+  type             String
   can_donate_to    String
   can_receive_from String
-  created_at     DateTime   @default(now())
-  updated_at     DateTime   @updatedAt
-  Donation       Donation[]
+  created_at       DateTime   @default(now())
+  updated_at       DateTime   @updatedAt
+  Donation         Donation[]
 }

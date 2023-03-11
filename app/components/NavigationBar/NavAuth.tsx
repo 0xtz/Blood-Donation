@@ -1,29 +1,44 @@
 "use client";
+
 import React, { useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { Dna } from "react-loader-spinner";
 import Image from "next/image";
-import profile from "@/public/profile.svg";
+// @ts-ignore
+import Identicon from "react-identicons";
 
 export default function NavAuth() {
   const { data: session, status: loading } = useSession();
 
   useEffect(() => {
-    if (loading === "unauthenticated") {
-      console.log("unauthenticated");
-    } else if (loading === "authenticated") {
-      console.log("authenticated", session);
-    }
+    console.log("loading", loading);
+    console.log("session", session?.user);
   }, [loading, session]);
 
   const authUserNav = (
     <>
-       <Link href="/" className="">
-        <Image src={profile} alt="profile" />
+      <Link
+        // @ts-ignore
+        href="#"
+        className="">
+        Profile
       </Link>
-      <Link href="/" className="">
-        {session?.user?.name}
+      <Link
+        // @ts-ignore
+        href="#"
+        className="nav__pfp">
+        {session?.user?.image ? (
+          <Image
+            src={session?.user?.image}
+            alt="user profile picture"
+            width={40}
+            height={40}
+            className="nav__pfp"
+          />
+        ) : (
+          <Identicon string={session?.user?.name} size={30} />
+        )}
       </Link>
       <button
         className="button__secondary"
@@ -38,7 +53,7 @@ export default function NavAuth() {
   );
   const unAuthUserNav = (
     <>
-    {/* added it here just to test */}
+      {/* added it here just to test */}
       {/* <Link href="/" className="">
         <Image src={profile} alt="profile" />
       </Link> */}

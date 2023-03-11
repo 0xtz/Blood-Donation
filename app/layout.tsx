@@ -1,5 +1,4 @@
 import { AuthContext } from "@/app/AuthContext";
-import Head from "next/head";
 
 //
 import { NavigationBar } from "./components/NavigationBar/NavigationBar";
@@ -20,10 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         {/* favicon */}
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </head>
       <body>
         <AuthContext>
           <NavigationBar />
