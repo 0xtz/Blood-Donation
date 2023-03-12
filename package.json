@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm next dev --port 3984",
-    "build": "pnpm next build",
+    "build": "prisma generate && pnpm next build",
     "start": "pnpm next start --port 3984",
     "lint": "pnpm next lint"
   },

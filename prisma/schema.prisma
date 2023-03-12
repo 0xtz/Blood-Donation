@@ -17,18 +17,13 @@ model Users {
   dob           DateTime
   city          String
   phone_number  String?
-  blood_type    String
-  password      String?
+  Blood_type    String
   last_donation DateTime?
-  blood_type    String
-  phone_number  String?
   address       String?
   pfp           String?
   Donation      Donation[]
   created_at    DateTime   @default(now())
   updated_at    DateTime   @updatedAt
-  address       String
-  Donation      Donation[]
 }
 
 model Hospital {
@@ -39,7 +34,7 @@ model Hospital {
   password       String
   created_at     DateTime       @default(now())
   updated_at     DateTime       @updatedAt
-  blood_requests BloodRequest[]
+  blood_requests Blood_Request[]
   Donation       Donation[]
 }
 
@@ -50,7 +45,7 @@ model Donation {
   blood_type_id String?
   created_at    DateTime    @default(now())
   updated_at    DateTime    @updatedAt
-  Blood_type    Blood_type? @relation(fields: [blood_type_id], references: [id])
+  Blood_type    Blood_Type? @relation(fields: [blood_type_id], references: [id])
   Hospital      Hospital?   @relation(fields: [hospital_id], references: [id])
   User          Users?      @relation(fields: [user_id], references: [id])
 
@@ -59,7 +54,7 @@ model Donation {
   @@index([user_id], map: "Donation_userId_fkey")
 }
 
-model BloodRequest {
+model Blood_Request {
   id          String   @id @default(cuid())
   hospital_id String
   blood_type  String
@@ -71,7 +66,7 @@ model BloodRequest {
   @@index([hospital_id], map: "BloodRequest_hospital_id_fkey")
 }
 
-model BloodType {
+model Blood_Type {
   id               String     @id @default(cuid())
   type             String
   can_donate_to    String
