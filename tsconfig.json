@@ -19,19 +19,10 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "*.ts",
-    ".next/types/**/*.ts",
-    "C:\\Users\\Ouma\\Documents\\projects\\Blood-Donation\\.next/types/**/*.ts",
-    "app/(public)/layout.tsx.olf"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

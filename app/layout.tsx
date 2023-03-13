@@ -1,7 +1,7 @@
 import { AuthContext } from "@/app/AuthContext";
 
 //
-import { NavigationBar } from "./components/NavigationBar/NavigationBar";
+import Navigation from "@/app/components/layout/Navigation";
 
 //
 import "@/app/styles/globals.scss";
@@ -19,13 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* favicon */}
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body>
         <AuthContext>
-          <NavigationBar />
+          <Navigation />
           {children}
         </AuthContext>
       </body>

@@ -4,7 +4,7 @@ import Link from "next/link";
 // img
 import heroImg from "@/public/imgs/hero__section.svg";
 
-function HeroSection() {
+export default function HeroSection() {
   return (
     <main className="hero">
       <div className="hero__content">
@@ -37,5 +37,3 @@ function HeroSection() {
     </main>
   );
 }
-
-export default HeroSection;

@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
-function donations() {
-  return (
-    <div>donations</div>
-  )
+export default function page() {
+  return <div>donations</div>;
 }
-
-export default donations

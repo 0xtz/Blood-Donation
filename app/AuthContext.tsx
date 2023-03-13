@@ -1,6 +1,9 @@
 "use client";
 
+import React from "react";
 import { SessionProvider } from "next-auth/react";
+
+// ToastContainer
 import { ToastContainer } from "react-toastify";
 
 type Props = {
@@ -21,7 +24,7 @@ export const AuthContext = ({ children }: Props) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="colored"
       />
     </SessionProvider>
   );

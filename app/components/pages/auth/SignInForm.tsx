@@ -1,11 +1,15 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { FormEventHandler, useState } from "react";
 import { toast } from "react-toastify";
 
-export default function SignInForm() {
+export function SignInForm() {
+  const { data: session } = useSession();
+
+  console.log(`🚀 ~ file: SignInForm ~ session:`, session);
+
   const [error, setError] = useState<null | {
     message: string;
     status: number;
@@ -22,19 +26,10 @@ export default function SignInForm() {
   const handleSubmit: FormEventHandler = async (e) => {
     e.preventDefault();
 
-    await signIn("credentials", {
-      callbackUrl: "http://localhost:3984/", // callbackUrl is for redirection after login
-      // redirect: false,
+    await signIn("signIn", {
       email: user.email,
       password: user.password,
-    })
-      .then((res) => (window.location.href = "/"))
-      .catch((err) => {
-        setError({
-          message: err.message,
-          status: err.status,
-        });
-      });
+    });
   };
   return (
     <>

@@ -1,15 +1,19 @@
 "use client";
 
-import { User } from "@/types";
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
+
+import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 
 function SignUpForm() {
-  const [user, setUser] = useState<User>({
-    id: "",
-    cin: "",
+  const { data: session } = useSession();
 
+  session ? redirect("/") : null;
+
+  const [user, setUser] = useState({
+    cin: "",
     last_name: "",
     first_name: "",
     email: "",
@@ -18,23 +22,17 @@ function SignUpForm() {
     city: "",
     phone_number: "",
     blood_type: "",
-
     password: "",
   });
-  const [password, setPassword] = useState("");
-
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const res = await fetch("/api/create-user", {
+    await fetch("/api/create-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     })
-      .catch((err) => {
-        toast.error(`Error: ${err}`);
-      })
       .then((res) => {
         if (res?.status === 200) {
           toast.success("Account created successfully");
@@ -42,6 +40,9 @@ function SignUpForm() {
         } else {
           toast.error("Error: " + res?.statusText);
         }
+      })
+      .catch((err) => {
+        toast.error(`Error: ${err}`);
       });
   };
 
@@ -85,7 +86,6 @@ function SignUpForm() {
         // value={user.dob}
         placeholder="Date of Birth"
         onChange={(e) => {
-          console.log(e.target.valueAsDate);
           setUser({
             ...user,
             // @ts-ignore
@@ -128,9 +128,9 @@ function SignUpForm() {
       <input
         className="form__input"
         type="password"
-        value={password}
+        value={user.password}
         placeholder="Confirm Password"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
       <div className="flex_column tos">
         {/* tos */}

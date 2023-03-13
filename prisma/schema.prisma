@@ -1,10 +1,13 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mysql"
-  url      = env("DB_URL")
+  url      = env("DATABASE_URL")
 }
 
 model Users {
@@ -62,8 +65,6 @@ model Blood_Request {
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   hospital    Hospital @relation(fields: [hospital_id], references: [id])
-
-  @@index([hospital_id], map: "BloodRequest_hospital_id_fkey")
 }
 
 model Blood_Type {

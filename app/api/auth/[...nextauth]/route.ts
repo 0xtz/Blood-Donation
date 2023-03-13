@@ -1,83 +1,93 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
+import prisma from "@/lib/prisma";
 
-import prisma from "@/lib/prismadb";
+interface Credentials {
+  email: string;
+  password: string;
+}
 
 export const authOptions: NextAuthOptions = {
-  providers: [
-    // email / password providers...
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {},
-      authorize: async (credentials) => {
-        const { email, password } = credentials as {
-          email: string;
-          password: string;
-        };
-        const user = await prisma.users.findUnique({
-          where: {
-            email: email, // the email || cin to add
-          },
-        });
-        if (!user || !(await bcrypt.compare(password, user.password!))) {
-          throw new Error("Invalid email or password");
-        }
-
-        return {
-          id: user.id,
-          cin: user.cin,
-          name: `${user.first_name} ${user.last_name}`,
-          email: user.email,
-          dob: user.dob,
-          // role: user?.role === "admin" ? "admin" : "user",
-        };
-      },
-    }),
-    // ...add more providers here
-  ],
-  callbacks: {
-    async jwt({ token }) {
-      return token;
-    },
-    // async session({ session, token }) {
-    //   session.user = token;
-    //   return {
-    //     ...session,
-    //     user: {
-    //       ...session.user,
-    //       id: token.id,
-    //       cin: token.cin,
-    //       name: token.name,
-    //       email: token.email,
-    //       dob: token.dob,
-    //       // role: token.role,
-    //     },
-    //   };
-    // },
-  },
-
-  jwt: {
-    secret: process.env.JWT_SECRET,
-    maxAge: 60 * 60 * 24 * 30,
-  },
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
     updateAge: 24 * 60 * 60, // 24 hours
   },
-
-  pages: {
-    signIn: "/auth/signin",
-    // signOut: "/auth/signout",
+  providers: [
+    CredentialsProvider({
+      name: "signIn",
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "email" },
+        password: { label: "Password", type: "password" },
+      }, // we using custom credentials
+      authorize: async (credentials) => {
+        const { email, password } = credentials as Credentials;
+        //
+        const user = await prisma.users.findUnique({
+          where: {
+            email: email,
+          },
+        });
+        console.table(user);
+        // check if user exists and password is correct
+        if (!user || !(await bcrypt.compare(password, user.password))) {
+          throw new Error(`Invalid email or password`);
+        }
+        return {
+          id: user.id,
+          cin: user.cin,
+          email: user.email,
+          name: `${user.first_name} ${user.last_name}`,
+          pfp: user.pfp,
+          // role: user?.role === "admin" ? "admin" : "user",
+        };
+      },
+    }),
+  ],
+  jwt: {
+    secret: process.env.JWT_SECRET,
+    maxAge: 60 * 60 * 24 * 30,
   },
 
-  events: {
-    async signIn(message) {
-      console.log("signIn", message);
+  //   custom pages
+  // pages: {
+  //   signIn: "/auth/signin",
+  //   signOut: "/auth/signout",
+  // },
+
+  callbacks: {
+    // async redirect
+    async redirect({ url, baseUrl }) {
+      // don't redirect to sign in page
+      if (url === "/auth/signin") {
+        return baseUrl;
+      }
+      return url;
     },
-    async signOut(message) {
-      console.log("signOut", message);
+    //
+    session: ({ session, token }) => {
+      console.log("Session Callback", { session, token });
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+          // randomKey: token.randomKey,
+        },
+      };
+    },
+    jwt: ({ token, user }) => {
+      console.log("JWT Callback", { token, user });
+      if (user) {
+        const u = user as unknown as any;
+        return {
+          ...token,
+          id: u.id,
+          // randomKey: u.randomKey,
+        };
+      }
+      return token;
     },
   },
 };

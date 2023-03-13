@@ -2,15 +2,15 @@
 CREATE TABLE `Users` (
     `id` VARCHAR(191) NOT NULL,
     `cin` VARCHAR(191) NOT NULL,
+    `first_name` VARCHAR(191) NOT NULL,
+    `last_name` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
     `dob` DATETIME(3) NOT NULL,
-    `last_name` VARCHAR(191) NOT NULL,
-    `first_name` VARCHAR(191) NOT NULL,
     `city` VARCHAR(191) NOT NULL,
-    `last_donation` DATETIME(3) NULL,
-    `blood_type` VARCHAR(191) NOT NULL,
     `phone_number` VARCHAR(191) NULL,
+    `blood_type` VARCHAR(191) NOT NULL,
+    `last_donation` DATETIME(3) NULL,
     `address` VARCHAR(191) NULL,
     `pfp` VARCHAR(191) NULL,
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -44,9 +44,6 @@ CREATE TABLE `Donation` (
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL,
 
-    INDEX `Donation_bloodTypeId_fkey`(`blood_type_id`),
-    INDEX `Donation_hospitalId_fkey`(`hospital_id`),
-    INDEX `Donation_userId_fkey`(`user_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -59,7 +56,6 @@ CREATE TABLE `BloodRequest` (
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL,
 
-    INDEX `BloodRequest_hospital_id_fkey`(`hospital_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

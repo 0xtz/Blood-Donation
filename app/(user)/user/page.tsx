@@ -1,13 +1,15 @@
-export const metadata = {
-  title: "My account",
-  //   admin pages
-  description: ``,
-};
+import { useSession } from "next-auth/react";
 
-export default function Account() {
+export default function page() {
+  // get the user from the session
+  const user = useSession();
+  console.log(user);
   return (
     <div>
       <h1>My account</h1>
+      <pre>
+        <code>{JSON.stringify(user, null, 2)}</code>
+      </pre>
     </div>
   );
 }
