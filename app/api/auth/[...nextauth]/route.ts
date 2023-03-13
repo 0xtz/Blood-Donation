@@ -34,10 +34,6 @@ export const authOptions: NextAuthOptions = {
         if (!user || !(await bcrypt.compare(password, user.password))) {
           throw new Error(`Invalid email or password`);
         }
-        console.log("\n \n \n \n -------------------------------------- ");
-        console.table(user);
-        console.log("\n \n \n \n -------------------------------------- ");
-
         // return user
         return {
           id: user.id,
