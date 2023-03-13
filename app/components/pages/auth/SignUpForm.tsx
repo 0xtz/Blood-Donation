@@ -142,15 +142,15 @@ function SignUpForm() {
       {/*  ---------------  */}
 
       {/* sign up */}
-      <Link href="/auth/signup" className="button__primary form__button">
+      <Link href="/auth/signup" className="button__primary form__button" onClick={handleSubmit}>
         Sign Up
       </Link>
-      
+
       {/* sign in */}
       <span className="color-stroke">You already have an account ?</span>
-      <button className="button__secondary form__button" onClick={handleSubmit}>
+      <Link href="/auth/signin" className="button__secondary form__button">
         Sign In
-      </button>
+      </Link>
     </form>
   );
 }
