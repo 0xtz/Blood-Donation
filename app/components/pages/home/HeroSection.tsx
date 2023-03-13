@@ -3,6 +3,7 @@ import Link from "next/link";
 
 // img
 import heroImg from "@/public/imgs/hero__section.svg";
+import heartbeat from "@/public/imgs/heartbeat.svg";
 
 export default function HeroSection() {
   return (
@@ -33,6 +34,10 @@ export default function HeroSection() {
       {/*  */}
       <div className="hero__image">
         <Image src={heroImg} alt="hero" />
+      </div>
+
+      <div className="heartbeat">
+        <Image src={heartbeat} alt="heartbeat" />
       </div>
 
       <div className="donation__count">

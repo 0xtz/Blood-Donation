@@ -42,7 +42,15 @@
     }
   }
 }
-.donation__count{
+.heartbeat {
+  position: absolute;
+  width: 280px;
+  height: 125.52px;
+  left: 690px;
+  top: 192px;
+
+}
+.donation__count {
   box-sizing: border-box;
   display: flex;
   align-items: center;
