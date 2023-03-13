@@ -13,7 +13,7 @@ export default function HeroSection() {
         <p className="hero__content__desc">
           Join us in the fight against blood shortages and help save lives by
           donating blood today. Every donation makes a difference and has the
-          power to change someone's life.
+          power to change someone&apos;s life.
         </p>
         <div className="hero__content__buttons">
           <Link
@@ -33,6 +33,10 @@ export default function HeroSection() {
       {/*  */}
       <div className="hero__image">
         <Image src={heroImg} alt="hero" />
+      </div>
+
+      <div className="donation__count">
+        <h2>More than <span className="red">46789</span> Donation</h2>
       </div>
     </main>
   );
