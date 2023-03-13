@@ -1,0 +1,20 @@
+# Project INFO
+
+## DB INFO
+
+> SERVER IP : 104.197.82.64
+> user : `tz`
+> password : `GeZwflVbpAgcVQrd`
+
+- connect to the remote MySql server
+
+> mariadb -u tz -p -h 104.197.82.64
+
+```sql
+
+CREATE DATABASE BLOOD_DONATION;
+CREATE USER 'tz'@'%' IDENTIFIED BY 'GeZwflVbpAgcVQrd';
+GRANT ALL PRIVILEGES ON your_database_name.* TO 'tz'@'%';
+FLUSH PRIVILEGES;
+
+```
