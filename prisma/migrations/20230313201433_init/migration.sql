@@ -44,11 +44,14 @@ CREATE TABLE `Donation` (
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL,
 
+    INDEX `Donation_blood_typeId_fkey`(`blood_type_id`),
+    INDEX `Donation_hospitalId_fkey`(`hospital_id`),
+    INDEX `Donation_userId_fkey`(`user_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `BloodRequest` (
+CREATE TABLE `Blood_Request` (
     `id` VARCHAR(191) NOT NULL,
     `hospital_id` VARCHAR(191) NOT NULL,
     `blood_type` VARCHAR(191) NOT NULL,
@@ -60,7 +63,7 @@ CREATE TABLE `BloodRequest` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `BloodType` (
+CREATE TABLE `Blood_Type` (
     `id` VARCHAR(191) NOT NULL,
     `type` VARCHAR(191) NOT NULL,
     `can_donate_to` VARCHAR(191) NOT NULL,
@@ -72,7 +75,7 @@ CREATE TABLE `BloodType` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Donation` ADD CONSTRAINT `Donation_blood_type_id_fkey` FOREIGN KEY (`blood_type_id`) REFERENCES `BloodType`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `Donation` ADD CONSTRAINT `Donation_blood_type_id_fkey` FOREIGN KEY (`blood_type_id`) REFERENCES `Blood_Type`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `Donation` ADD CONSTRAINT `Donation_hospital_id_fkey` FOREIGN KEY (`hospital_id`) REFERENCES `Hospital`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
@@ -81,4 +84,4 @@ ALTER TABLE `Donation` ADD CONSTRAINT `Donation_hospital_id_fkey` FOREIGN KEY (`
 ALTER TABLE `Donation` ADD CONSTRAINT `Donation_user_id_fkey` FOREIGN KEY (`user_id`) REFERENCES `Users`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `BloodRequest` ADD CONSTRAINT `BloodRequest_hospital_id_fkey` FOREIGN KEY (`hospital_id`) REFERENCES `Hospital`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Blood_Request` ADD CONSTRAINT `Blood_Request_hospital_id_fkey` FOREIGN KEY (`hospital_id`) REFERENCES `Hospital`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;

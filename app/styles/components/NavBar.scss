@@ -29,19 +29,23 @@ nav {
           }
         }
       }
-
-      .nav__pfp {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
     }
 
     .nav__auth {
       display: flex;
       align-items: center;
       gap: 24px;
+
+      .nav__pfp {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid $color-primary;
+        canvas {
+          border-radius: 50%;
+        }
+      }
     }
   }
   #red {

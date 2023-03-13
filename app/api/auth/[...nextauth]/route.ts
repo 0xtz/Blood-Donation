@@ -34,6 +34,11 @@ export const authOptions: NextAuthOptions = {
         if (!user || !(await bcrypt.compare(password, user.password))) {
           throw new Error(`Invalid email or password`);
         }
+        console.log("\n \n \n \n -------------------------------------- ");
+        console.table(user);
+        console.log("\n \n \n \n -------------------------------------- ");
+
+        // return user
         return {
           id: user.id,
           cin: user.cin,
@@ -55,28 +60,7 @@ export const authOptions: NextAuthOptions = {
   //   signIn: "/auth/signin",
   //   signOut: "/auth/signout",
   // },
-
   callbacks: {
-    // async redirect
-    async redirect({ url, baseUrl }) {
-      // don't redirect to sign in page
-      if (url === "/auth/signin") {
-        return baseUrl;
-      }
-      return url;
-    },
-    //
-    session: ({ session, token }) => {
-      console.log("Session Callback", { session, token });
-      return {
-        ...session,
-        user: {
-          ...session.user,
-          id: token.id,
-          // randomKey: token.randomKey,
-        },
-      };
-    },
     jwt: ({ token, user }) => {
       console.log("JWT Callback", { token, user });
       if (user) {
@@ -84,10 +68,24 @@ export const authOptions: NextAuthOptions = {
         return {
           ...token,
           id: u.id,
-          // randomKey: u.randomKey,
+          name: u.name,
+          // include any other properties you want in the JWT token
         };
       }
       return token;
+    },
+    // ...
+    session: ({ session, token }) => {
+      console.log("Session Callback", { session, token });
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+          name: token.name,
+          // include any other properties you want in the user session
+        },
+      };
     },
   },
 };
