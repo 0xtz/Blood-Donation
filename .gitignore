@@ -7,6 +7,9 @@
 /.pnp
 .pnp.js
 
+# pnpm lockfile
+/pnpm-lock.yaml
+
 # testing
 /coverage
 
@@ -29,6 +32,8 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.local
+.env
 
 # vercel
 .vercel
@@ -36,5 +41,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# test files and folders
+/__tests__
+/__mocks__
+/__e2e__
+/__snapshots__
+/cypress
+
+# nextjs
+/.next
+/out
+
+# personal files
+.idea
+.vscode
+*.iml
+*.log
+*.swp
+*.swo
+*.old
+
 
 # End of https://www.toptal.com/developers/gitignore/api/nextjs

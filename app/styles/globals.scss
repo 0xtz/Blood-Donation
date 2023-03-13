@@ -1,7 +1,8 @@
 // import all the styles here to this file
 
 // 3rd party :
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk:wght@500;700&display=swap"); // family=Poppins:wght@500;700
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Space+Grotesk:wght@500;700&display=swap"); //DM Sans
 
 // variables :
 @import "_variables.scss";
@@ -12,12 +13,15 @@
 @import "_reset.scss";
 @import "_typography.scss";
 @import "_base.scss";
+@import "_utils.scss";
 
 //  pages :
 @import "./pages/Home.scss";
+@import "./pages/auth"; // all auth pages
 
 // components :
 @import "./components/NavBar.scss";
 @import "./components/buttons.scss";
+@import "./components/inputs.scss";
 
 // utils etc :

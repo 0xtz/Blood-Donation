@@ -1,10 +1,12 @@
 nav {
+  box-shadow: 0px 1px 4px $color-shadow;
   .nav__wrapper {
     height: 66px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.251);
     .nav__logo {
       width: 40px;
       // height: ;
@@ -33,6 +35,17 @@ nav {
       display: flex;
       align-items: center;
       gap: 24px;
+
+      .nav__pfp {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid $color-primary;
+        canvas {
+          border-radius: 50%;
+        }
+      }
     }
   }
   #red {

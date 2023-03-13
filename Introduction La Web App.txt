@@ -1,0 +1,347 @@
+1 Introduction
+La Web App Don de Sang est un système qui permet aux hôpitaux de publier des besoins en sang pour les patients nécessitant une transfusion sanguine. Cette application envoie une demande à tous les utilisateurs de l'application dans la ville qui ont le type de sang nécessaire. Une fois qu'un donneur a donné du sang, la demande est marquée comme "fermée". Les utilisateurs peuvent voir toutes les donations, toutes les demandes, filtrer les demandes, etc. Les administrateurs peuvent publier des demandes aux utilisateurs, créer, supprimer et mettre à jour des demandes. Les technologies utilisées pour cette application sont Prisma, Next.js v13 et MySql.
+
+2 Fonctionnalités
+
+2.1. Inscription et connexion des utilisateurs
+Les utilisateurs peuvent créer un compte en entrant leur nom, leur adresse e-mail, leur type de sang, leur ville et leur mot de passe. Les utilisateurs peuvent se connecter à l'application en utilisant leur adresse e-mail et leur mot de passe.
+
+2.2. Publication de demandes
+Les administrateurs peuvent publier des demandes de don de sang pour les patients en indiquant le type de sang nécessaire, l'hôpital et d'autres informations pertinentes. Les utilisateurs peuvent voir toutes les demandes publiées dans la ville. Les demandes peuvent être filtrées par type de sang, date et hôpital.
+
+2.3. Envoi de demandes aux utilisateurs
+L'application envoie une notification aux utilisateurs de la ville qui ont le type de sang nécessaire pour informer qu'un patient a besoin de sang.
+
+2.4. Don de sang
+Les utilisateurs peuvent indiquer qu'ils sont disposés à donner du sang en répondant à une demande de don de sang. Une fois qu'un donneur a donné du sang, la demande est marquée comme "fermée". Les utilisateurs peuvent voir toutes les donations qu'ils ont effectuées.
+
+2.5. Profil utilisateur
+Les utilisateurs peuvent voir et modifier leur profil, y compris leur nom, leur adresse e-mail, leur type de sang et leur ville.
+
+2.6. Gestion des demandes
+Les administrateurs peuvent créer, supprimer et mettre à jour des demandes de don de sang. Les demandes peuvent être filtrées et triées par type de sang, date et hôpital.
+
+2.7. Statistiques
+L'application fournit des statistiques sur le nombre de demandes de don de sang, le nombre de dons de sang et le type de sang le plus demandé dans la ville.
+
+Exigences techniques
+3.1. Technologies
+L'application sera développée en utilisant Prisma, Next.js v13 et MySql.
+
+3.2. Sécurité
+Les mots de passe des utilisateurs seront stockés de manière sécurisée à l'aide d'une fonction de hachage. Les connexions entre l'application et les utilisateurs seront chiffrées à l'aide de SSL.
+
+3.3. Performances
+L'application doit être rapide et réactive pour permettre aux utilisateurs de trouver rapidement les demandes de don de sang et les donner.
+
+Conclusion
+La Web App Don de Sang est un outil précieux pour les hôpitaux et les patients en facilitant la recherche de donneurs de sang dans une ville donnée. Les utilisateurs peuvent facilement trouver des demandes de don de sang qui correspondent à leur type de sang
+
+------------------------------------------------------
+
+I )
+Compréhension des objectifs de l’application
+Compréhension des besoins précis de l’utilisateur∑Compréhension des fonctionnalités de l’application
+Planification objective des activités 
+Bonne estimation des coûts et délais
+Maîtrise de l’outil de gestion de projet Agile
+
+2 ) Concevoir l’application
+Qualité de la modélisation UML
+Respect de la charte graphique
+Conformité de la maquette avec la charte graphique
+Enchaînement d’interfaces utilisateurs∑Respects des règles ergonomiques issues de l’expérience utilisateur
+
+3 ) Réaliser l’application
+Respect des bonnes pratiques de codage
+Complétude des fonctionnalités de l’application en phase avec les besoins spécifiques de l’utilisateur
+Complétude des tests
+Qualité de la documentation fournie
+Niveau de sécurisation de l’application
+
+4 ) Réaliser la veille technologique
+Maîtrise des techniques de recherche
+Maîtrise des techniques de capitalisation de l’information aux fins d’une veille technologique 
+
+
+-----------------
+
+Spécifications du cahier des charges
+Caractéristiques techniques de l’application
+Fonctionnalités attendues
+Utilisateurs cibles
+Rôles des utilisateurs
+
+Planification du travail :
+-Tâches à effectuer
+-Estimation de la durée
+-Estimation des coûts
+Détermination des outils nécessaires pour développer l’application
+Détermination des outils nécessaires pour exploiter l’application
+
+B.1- Modéliser l’application à l’aide d’UML
+
+Conception des diagrammes UML
+Conception d’interfaces utilisateurs
+Conception de la base de données
+Conception des composants
+
+B.3 - Réaliser un prototype de l’application 
+Maquettage de l’application (wireframe, maquette)∑Prototypage de l’application (contenus, interactions entre éléments)∑Effets graphiques (éléments visuels, animations...)
+
+
+C.1 Développer la partie front end
+
+Conception des interfaces graphiques
+Exploitation des Frameworks étudiés
+Tests et validation
+Documentation des instructions
+
+c.2 Dev la partie backend
+
+Exploitation des Frameworks étudiés
+Création des composants
+Codage des programmes
+Optimisation du code
+Tests et validation
+Documentation des instructions
+
+c.3 Sécuriser l’application
+
+Accès sécurisé et hiérarchisé des utilisateurs
+Accès sécurisé des données
+
+C.4- Restituer l’application
+
+Déploiement de l’application
+Guide d’installation
+Aide en ligne
+Soutenance du travail devant un groupe de stagiaires et formateurs
+
+
+-----------------------------------------------
+
+A. Spécifications du cahier des charges
+
+A.1 Caractéristiques techniques de l’application :
+
+Utilisation de Prisma pour la gestion de la base de données
+Utilisation de Next.js v13 pour le développement front-end
+Utilisation de MySQL pour la gestion de la base de données
+A.2 Fonctionnalités attendues :
+
+Possibilité pour les hôpitaux de publier des demandes de sang en spécifiant le groupe sanguin requis
+Notification de toutes les personnes résidant dans la ville et ayant le groupe sanguin requis
+Marquage d'une demande comme "fermée" une fois qu'un donneur a donné du sang
+Affichage des dons de sang effectués
+Affichage des demandes de sang ouvertes et fermées
+Possibilité de filtrer les demandes de sang en fonction du groupe sanguin et de la date
+Possibilité pour les administrateurs de publier, modifier et supprimer des demandes de sang
+Accès réservé aux utilisateurs enregistrés pour les fonctionnalités avancées
+Interface utilisateur intuitive et facile à utiliser
+A.3 Utilisateurs cibles :
+
+Hôpitaux et cliniques
+Donneurs de sang potentiels
+Utilisateurs enregistrés souhaitant accéder à des fonctionnalités avancées
+A.4 Rôles des utilisateurs :
+
+Administrateurs : ils peuvent publier, modifier et supprimer des demandes de sang, ainsi que gérer les utilisateurs
+Utilisateurs enregistrés : ils peuvent voir les demandes de sang, les dons effectués, filtrer les demandes et recevoir des notifications de demande de sang
+B. Planification du travail
+
+B.1 Modélisation de l'application à l'aide d'UML :
+
+Conception de diagrammes UML pour le développement de l'application
+Conception d'interfaces utilisateur pour une expérience utilisateur optimale
+Conception de la base de données pour stocker les informations sur les demandes de sang et les donneurs
+B.2 Réalisation d'un prototype de l'application :
+
+Maquettage de l'application pour visualiser la disposition des éléments
+Prototypage de l'application pour tester les interactions entre les différents éléments
+Ajout d'effets graphiques pour améliorer l'expérience utilisateur
+C. Développement de l'application
+
+C.1 Développement de la partie front-end :
+
+Conception des interfaces graphiques pour offrir une expérience utilisateur agréable
+Utilisation des frameworks étudiés pour optimiser le développement
+Tests et validation pour assurer le bon fonctionnement de l'application
+Documentation des instructions pour faciliter l'utilisation de l'application
+C.2 Développement de la partie back-end :
+
+Utilisation des frameworks étudiés pour développer les différents composants de l'application
+Codage des programmes pour une utilisation efficace de l'application
+Optimisation du code pour une utilisation fluide de l'application
+Tests et validation pour assurer le bon fonctionnement de l'application
+Documentation des instructions pour faciliter l'utilisation de l'application
+C.3 Sécurisation de l'application :
+
+Accès sécurisé et hiérarchisé des utilisateurs pour protéger les données
+
+B.1 - Modéliser l'application à l'aide d'UML :
+
+Dans cette phase, nous allons utiliser l'UML (Unified Modeling Language) pour modéliser l'application. Nous allons concevoir des diagrammes UML pour modéliser les différentes parties de l'application, y compris les interfaces utilisateurs, la base de données et les composants.
+
+Les diagrammes UML que nous allons créer sont :
+
+Diagramme de cas d'utilisation : qui permet de modéliser les interactions entre les différents acteurs et l'application.
+
+Diagramme de classes : qui permet de modéliser les différentes classes de l'application, les attributs et les relations entre les classes.
+
+Diagramme de séquence : qui permet de modéliser les interactions entre les différents objets de l'application dans une séquence chronologique.
+
+Diagramme d'état-transition : qui permet de modéliser les différents états de l'application et les transitions entre ces états.
+
+Diagramme de déploiement : qui permet de modéliser la manière dont l'application sera déployée sur les serveurs et les machines des utilisateurs.
+
+B.2 - Réaliser un prototype de l'application :
+
+Dans cette phase, nous allons créer des maquettes de l'application pour avoir une idée claire de l'interface utilisateur et des interactions entre les différents éléments. Nous allons utiliser des outils de conception d'interface utilisateur tels que Sketch ou Adobe XD pour créer des maquettes.
+
+Nous allons également créer des prototypes de l'application en utilisant des outils de prototypage tels que InVision ou Figma pour simuler les interactions entre les différents éléments de l'interface utilisateur.
+
+C.1 - Développer la partie front-end :
+
+Dans cette phase, nous allons utiliser Next.js v13 pour développer la partie front-end de l'application. Nous allons concevoir les interfaces graphiques et les éléments visuels de l'application, en nous basant sur les maquettes et les prototypes créés dans la phase précédente.
+
+Nous allons également utiliser des frameworks tels que React et Tailwind CSS pour accélérer le développement et améliorer l'expérience utilisateur.
+
+Nous allons tester et valider l'interface utilisateur en utilisant des outils de test tels que Jest ou Enzyme.
+
+C.2 - Développer la partie back-end :
+
+Dans cette phase, nous allons utiliser Prisma et MySQL pour développer la partie back-end de l'application. Nous allons créer les composants nécessaires pour gérer les données, y compris les demandes de don de sang et les informations sur les donneurs.
+
+Nous allons également créer les APIs nécessaires pour permettre aux différents acteurs de communiquer avec l'application.
+
+Nous allons optimiser le code pour améliorer les performances et la scalabilité de l'application.
+
+C.3 - Sécuriser l'application :
+
+Dans cette phase, nous allons mettre en place des mesures de sécurité pour protéger l'application contre les attaques et les intrusions. Nous allons mettre en place des accès sécurisés et hiérarchisés pour les utilisateurs, et nous allons sécuriser les données stockées dans la base de données.
+
+C.4 - Restituer l'application :
+
+Dans cette phase, nous allons déployer l'application sur un serveur et fournir un guide d'installation pour les utilisateurs. Nous allons également fournir une aide en ligne pour les utilisateurs et nous all
+
+D.2 - Déploiement et maintenance de l’application
+
+Une fois l'application développée et testée, il est nécessaire de la déployer sur un environnement de production afin qu'elle puisse être utilisée par les utilisateurs finaux. Cette étape comprend :
+
+La mise en place d'un environnement de production pour héberger l'application
+L'installation et la configuration des dépendances nécessaires pour l'application
+La mise en place d'un système de surveillance de l'application pour assurer son bon fonctionnement
+La mise en place d'un système de sauvegarde régulier des données
+La configuration de l'application pour assurer la sécurité des données des utilisateurs
+La mise en place d'un système de support pour aider les utilisateurs en cas de problème
+La maintenance de l'application est également importante pour assurer son bon fonctionnement et sa sécurité à long terme. Elle comprend :
+
+La mise à jour régulière des dépendances et des composants de l'application pour assurer la sécurité et la stabilité de l'application
+La correction des bugs et des failles de sécurité découverts dans l'application
+L'ajout de nouvelles fonctionnalités demandées par les utilisateurs
+La surveillance régulière de l'application pour détecter les problèmes potentiels
+D.3 - Formation des utilisateurs
+
+Il est important de former les utilisateurs de l'application pour assurer une bonne utilisation de celle-ci. La formation peut inclure :
+
+Des sessions de formation en personne ou en ligne pour les utilisateurs
+Des guides d'utilisation de l'application
+Des vidéos de formation pour aider les utilisateurs à comprendre comment utiliser l'application
+Des sessions de support pour aider les utilisateurs à résoudre les problèmes qu'ils rencontrent
+E - Conclusion
+
+En résumé, le cahier des charges pour le développement de l'application Blood Donation devra couvrir les aspects suivants :
+
+Les spécifications techniques de l'application, y compris les outils à utiliser pour le développement et l'exploitation de l'application
+Les fonctionnalités attendues de l'application, y compris les fonctionnalités pour les utilisateurs et les administrateurs
+Les utilisateurs cibles de l'application, y compris les rôles des différents utilisateurs
+La planification du travail, y compris les tâches à effectuer, les estimations de la durée et des coûts
+La modélisation de l'application à l'aide d'UML, y compris la conception des diagrammes, des interfaces utilisateur et de la base de données
+Le développement de l'application, y compris le développement de la partie frontend et backend, la sécurité de l'application, le déploiement et la maintenance
+La formation des utilisateurs de l'application
+
+
+-----------------------------------------------------
+
+A. Introduction
+
+Objectif du cahier des charges
+Contexte de l'application
+Périmètre du document
+Planification du projet
+
+B. Spécifications techniques
+
+Description de l'application
+Fonctionnalités attendues
+Scénarios d'utilisation
+Rôles des utilisateurs
+
+B.2 Planification du travail
+
+Tâches à accomplir
+Estimation de la durée
+Estimation des coûts
+Outils nécessaires pour le développement et l'exploitation de l'application
+
+Stack technologique et outils utilisés
+
+Modélisation de l'application avec UML
+Diagrammes UML
+Conception d'interfaces utilisateur
+Conception de la base de données
+Conception des composants
+
+B.3 Réalisation d'un prototype de l'application
+### Conception des interfaces graphiques
+Chart Graphic :
+---
+Rouge : Le rouge est souvent associé au sang et à la vie. Nous avons donc choisi une teinte de rouge vif pour la couleur principale de notre application, afin de rappeler l'objectif et la mission de l'application, qui est de permettre aux patients de recevoir le sang dont ils ont besoin pour vivre.
+
+Blanc et noir : Le blanc est une couleur neutre et propre qui apporte de la clarté à l'interface, tandis que le noir est une couleur élégante et sobre qui contraste bien avec le rouge. Nous avons donc choisi d'utiliser ces deux couleurs pour apporter une harmonie visuelle à l'interface.
+
+Polices lisibles : Nous avons choisi d'utiliser des polices lisibles pour que l'interface de l'application soit facile à lire pour les utilisateurs. Nous avons opté pour "Space Grotesk" pour les titres, car elle est élégante et moderne, tout en restant facile à lire. Pour le texte, nous avons choisi "DM Sans", car elle est lisible et agréable à lire sur tous les types d'écrans.
+
+En résumé, nous avons choisi ces couleurs et polices pour donner une impression de clarté, de modernité et de professionnalisme à l'interface de notre application.
+---
+
+Wireframes et maquettes
+
+Conception des base de données
+
+C. Développement de l'application
+
+Architecture et conception du système
+Développement de la partie front-end
+Développement de la partie back-end
+Sécurité de l'application
+Restitution de l'application
+
+
+D. Maintenance et évolution de l'application
+
+Maintenance corrective et évolutive
+Veille technologique
+E. Aspects légaux
+
+Protection des données personnelles
+Propriété intellectuelle
+Sécurité informatique
+F. Formation et accompagnement
+
+Formation des utilisateurs
+Accompagnement des utilisateurs
+G. Planning
+
+Planification des tâches et échéances
+H. Budget
+
+Estimation des coûts de développement et mise en place
+Estimation des coûts de maintenance et évolution de l'application
+I. Conclusion
+
+Récapitulatif des spécifications
+Perspectives d'évolution de l'application
+
+

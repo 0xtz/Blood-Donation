@@ -1,0 +1,42 @@
+// add underline 80% width of the parent element
+.underline {
+  &::after {
+    content: "";
+    display: block;
+    width: 80%;
+    margin: 10px 0;
+    height: 5px;
+    background-color: $color-primary;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: 24px;
+  &_column {
+    flex-direction: column;
+  }
+  &_row {
+    flex-direction: row;
+  }
+}
+
+//  TEXT UTILS :
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+// color-utils
+
+.color-stroke {
+  color: $color-stroke;
+}
+
+.color-primary {
+  color: $color-primary;
+}
+

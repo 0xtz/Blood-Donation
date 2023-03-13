@@ -1,13 +1,10 @@
-export const metadata = {
-  title: "",
-  //   admin pages
-  description: ``,
-};
+// import { getServerSession } from "next-auth/next";
+// import { authOptions } from "pages/api/auth/[...nextauth]";
 
-export default function Dashboard() {
-  return (
-    <div>
-      <h1>Dashboard page</h1>
-    </div>
-  );
+export default async function Page() {
+  return <pre>
+
+  </pre>;
 }
+
+// visit http://localhost:3000/admin/dashboard

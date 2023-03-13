@@ -1,8 +1,18 @@
 body {
   background-color: $color-white;
   color: $color-black;
+
+  // Set the font family
+  font-family: $font-text;
 }
 
-#root {
+.page__container {
   margin: 0 5%;
+}
+
+// change the text selection color
+::selection {
+  // background-color: $color-primary;
+  background-color: $color-primary-light;
+  color: $color-white;
 }

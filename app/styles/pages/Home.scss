@@ -1,5 +1,5 @@
 .hero {
-  height: 90vh;
+  // height: 90vh;
   // center the content
   display: flex;
   justify-content: space-between;
@@ -37,6 +37,11 @@
   // mobile
   @media (max-width: 480px) {
     &__content {
+      //
+      margin: 0;
     }
   }
+}
+.red {
+  color: $color-primary;
 }

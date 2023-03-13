@@ -1,0 +1,68 @@
+.form {
+  background-color: $color-white;
+  border: 1px solid $color-stroke;
+
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgb(255 84 68 / 25%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  &__title {
+    margin-bottom: 24px;
+  }
+  &__input {
+    width: 100%;
+  }
+  &__button {
+    width: 100%;
+  }
+}
+
+//  --
+.main__form {
+  height: 100%;
+
+  //   display: flex;
+  //   flex-direction: column;
+  align-items: center;
+  //   justify-content: center;
+  form {
+    margin: 100px auto;
+  }
+}
+
+//  --  Sign In
+.form__signin {
+  @extend .form;
+
+  width: 450px;
+}
+
+//  --  Sign Up
+.form__signup {
+  @extend .form;
+
+  width: 450px;
+  .tos {
+    // left align
+    justify-content: center;
+    text-align: left;
+    align-items: start;
+    label {
+      margin-left: .6rem;
+      cursor: pointer;
+    }
+  }
+}
+
+//  --  Sign Out
+.form__signout {
+  @extend .form;
+
+  width: 450px;
+}

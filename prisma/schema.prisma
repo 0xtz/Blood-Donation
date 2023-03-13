@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id            String     @id @default(cuid())
+  cin           String     @unique
+  first_name    String
+  last_name     String
+  email         String     @unique
+  password      String
+  dob           DateTime
+  city          String
+  phone_number  String?
+  blood_type    String
+  last_donation DateTime?
+  address       String?
+  pfp           String?
+  Donation      Donation[]
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @updatedAt
+}
+
+model Hospital {
+  id             String          @id @default(cuid())
+  name           String
+  location       String
+  email          String?         @unique
+  password       String
+  created_at     DateTime        @default(now())
+  updated_at     DateTime        @updatedAt
+  blood_requests Blood_Request[]
+  Donation       Donation[]
+}
+
+model Donation {
+  id            String      @id @default(cuid())
+  user_id       String?
+  hospital_id   String?
+  blood_type_id String?
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  Blood_type    Blood_Type? @relation(fields: [blood_type_id], references: [id])
+  Hospital      Hospital?   @relation(fields: [hospital_id], references: [id])
+  User          Users?      @relation(fields: [user_id], references: [id])
+
+  @@index([blood_type_id], map: "Donation_blood_typeId_fkey")
+  @@index([hospital_id], map: "Donation_hospitalId_fkey")
+  @@index([user_id], map: "Donation_userId_fkey")
+}
+
+model Blood_Request {
+  id          String   @id @default(cuid())
+  hospital_id String
+  blood_type  String
+  status      String   @default("Open")
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  hospital    Hospital @relation(fields: [hospital_id], references: [id])
+}
+
+model Blood_Type {
+  id               String     @id @default(cuid())
+  type             String
+  can_donate_to    String
+  can_receive_from String
+  created_at       DateTime   @default(now())
+  updated_at       DateTime   @updatedAt
+  Donation         Donation[]
+}
