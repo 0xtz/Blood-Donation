@@ -42,6 +42,30 @@
     }
   }
 }
+
+.heartbeat {
+  position: absolute;
+  width: 280px;
+  height: 125.52px;
+  left: 690px;
+  top: 192px;
+
+}
+.donation__count {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 12px 24px;
+  width: 465px;
+  height: 72px;
+  left: 545px;
+  top: 430px;
+  background: $color-background;
+  border: 2px solid $color-primary;
+  box-shadow: 3px 4px 4px $color-shadow;
+  border-radius: 12px;  
+}
 .red {
   color: $color-primary;
 }
